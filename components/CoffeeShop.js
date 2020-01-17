@@ -20,16 +20,16 @@ class Card extends React.Component {
       // </View>
       <View   
       style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-      <Text>{this.props.name}</Text> 
-      <Tile
-        // imageSrc={require('../assets/icon.png')}
-        imageSrc={{ uri: this.props.img }}
-        title={this.props.name}
-        contentContainerStyle={{ height: 70 }}
-      >
-        <Text>{this.props.address}</Text>
-        <Text>{this.props.name}</Text>
-      </Tile> 
+      
+        <Tile
+          // imageSrc={require('../assets/icon.png')}
+          imageSrc={{ uri: this.props.img }}
+          title={this.props.name}
+          contentContainerStyle={{ height: 60 }}
+        >
+          <Text>{this.props.address}</Text>
+          <Text>{this.props.neighborhood}</Text>
+        </Tile> 
       </View> 
     )
   }
@@ -40,9 +40,11 @@ class NoMoreCards extends React.Component {
     super(props);
   }
   render() {
+    console.log('no more matches');
+    
     return (
       <View>
-        <Text style={styles.noMoreCardsText}>No more matches!</Text>
+        <Text >No more matches!</Text>
       </View>
     )
   }

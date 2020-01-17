@@ -28,10 +28,10 @@ class CoffeeShopList extends React.Component {
   render() {
     return (
       <View>
-        <Button 
+        {/* <Button 
         style={{ flex: 1}}
         title="New Search"
-        onPress={this.onButtonPress.bind(this)} />
+        onPress={this.onButtonPress.bind(this)} /> */}
 
         <CoffeeShop
           newSearch={this.props.newSearch}
