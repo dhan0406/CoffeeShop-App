@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './components/Home';
 import CoffeeShopList from './components/CoffeeShopList';
-import Coffeeshop from './components/CoffeeShop';
 import UserSelection from './components/UserSelection';
 import axios from 'axios';
 import { Tile } from 'react-native-elements'
+import MatchPage from './components/MatchPage';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -52,7 +52,11 @@ export default class App extends React.Component {
   }
 
   handleYup(card){
-    console.log('yup');
+    console.log(card);
+    this.setState({
+      defaultPage: MatchPage,
+      card: card,
+    })
   }
 
   handleNope(card){
@@ -80,6 +84,11 @@ export default class App extends React.Component {
         />
       )}
 
+      {this.state.defaultPage == MatchPage && (
+        <MatchPage
+          card={this.state.card}
+        />
+      )}
     </View>
     )}
 }

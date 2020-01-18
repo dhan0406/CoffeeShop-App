@@ -3,7 +3,6 @@ import React from 'react';
 import axios from 'axios';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
-import CoffeeShop from './CoffeeShop';
 
 class UserSelection extends React.Component {
   state = { neighborhood: '',

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import CoffeeShop from './CoffeeShop';
+import SwipeCards from 'react-native-swipe-cards';
 import { Tile } from 'react-native-elements'
 
 class CoffeeShopList extends React.Component {
@@ -21,23 +21,76 @@ class CoffeeShopList extends React.Component {
     })
   }
 
-
   render() {
     return (
-      <View>
+      <SwipeCards 
+      cards={this.state.coffeeshops}
+      renderCard={(cardData) => <CoffeeShop {...cardData} />}
+      renderNoMoreCards={() => <NoMoreCards backToSearch={this.props.backToSearch} />}
+      handleYup={this.props.handleYup}
+      handleNope={this.props.handleNope}
+    /> 
       
-
-        <CoffeeShop
-          backToSearch={this.props.backToSearch}
-          handleNope={this.props.handleNope}
-          handleYup={this.props.handleYup}
-          list={this.state.coffeeshops}
-          />
-
-
-      </View>
     )
   }
 }
 
-  export default CoffeeShopList;
+class CoffeeShop extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      card: props.card,
+      cards: props.list
+    
+    }
+  }
+
+  render() {
+    return(
+      <View   
+      style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+      
+        <Tile
+          // imageSrc={require('../assets/icon.png')}
+          imageSrc={{ uri: this.props.img }}
+          title={this.props.name}
+          contentContainerStyle={{ height: 60 }}
+        >
+          <Text>{this.props.address}</Text>
+          <Text>{this.props.neighborhood}</Text>
+        </Tile>  
+      </View> 
+    )
+  }
+}
+
+class NoMoreCards extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+    onButtonSearch() {
+    this.props.backToSearch()
+    }
+  
+
+  render() {
+    console.log('no more matches');
+    
+    return (
+      <View>
+        {/* apply style to hide image */}
+        <Tile>
+
+        <Text>No More Matches!</Text>
+
+          <Button 
+            // style={{ flex: 1}}
+            title="New Search"
+            onPress={this.onButtonSearch.bind(this)} />
+        </Tile> 
+      </View> 
+    )
+  }
+}
+
+export default CoffeeShopList;

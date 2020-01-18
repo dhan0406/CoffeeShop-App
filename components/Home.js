@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
-export default class App extends React.Component {
+export default class Home extends React.Component {
 
   onStart() {
     this.props.newSearch()
   }
   render() {
     return(
-      <View>
+      <View style={styles.container}>
         <Text>Welcome</Text>
         <Button 
         title="Start Search"
@@ -16,5 +16,13 @@ export default class App extends React.Component {
       </View>
     )
   }
-
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,justifyContent:"center",backgroundColor:"#fff", alignItems:"center"
+  },
+  text: {
+    fontSize: 20,
+  }
+});
