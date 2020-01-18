@@ -21,20 +21,14 @@ class CoffeeShopList extends React.Component {
     })
   }
 
-  onButtonPress() {
-    this.props.newSearch()
-  }
 
   render() {
     return (
       <View>
-        {/* <Button 
-        style={{ flex: 1}}
-        title="New Search"
-        onPress={this.onButtonPress.bind(this)} /> */}
+      
 
         <CoffeeShop
-          newSearch={this.props.newSearch}
+          backToSearch={this.props.backToSearch}
           handleNope={this.props.handleNope}
           handleYup={this.props.handleYup}
           list={this.state.coffeeshops}

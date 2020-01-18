@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import { Tile } from 'react-native-elements'
 import SwipeCards from 'react-native-swipe-cards';
 import PropTypes from 'prop-types';
@@ -10,6 +10,7 @@ class Card extends React.Component {
     this.state = {
       card: props.card,
       cards: props.list
+    
     }
   }
 
@@ -21,7 +22,7 @@ class Card extends React.Component {
       <View   
       style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
       
-        <Tile
+            <Tile
           // imageSrc={require('../assets/icon.png')}
           imageSrc={{ uri: this.props.img }}
           title={this.props.name}
@@ -29,23 +30,49 @@ class Card extends React.Component {
         >
           <Text>{this.props.address}</Text>
           <Text>{this.props.neighborhood}</Text>
-        </Tile> 
+        </Tile>  
+
+      
+        
       </View> 
     )
   }
 }
 
-class NoMoreCards extends React.Component {
+class NoMoreCards extends Component {
   constructor(props) {
     super(props);
   }
+    onButtonSearch() {
+    this.props.backToSearch()
+    }
+  
+
   render() {
     console.log('no more matches');
     
     return (
       <View>
-        <Text >No more matches!</Text>
-      </View>
+        <Tile
+          // imageSrc={require('../assets/icon.png')}
+        > 
+        <Text>No More Matches!</Text>
+
+          <Button 
+            // style={{ flex: 1}}
+            title="New Search"
+            onPress={this.onButtonSearch.bind(this)} />
+        </Tile> 
+      </View> 
+
+//       <View style={styles.card}>
+
+      
+
+//         <Text style={styles.noMoreCardsText}>No more matches!</Text>
+// {/* 
+//         
+//       </View>
     )
   }
 }
@@ -73,8 +100,10 @@ class CoffeeShop extends React.Component {
 }
 const styles = StyleSheet.create({
   card: {
+    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     width: 300,
     height: 300,
   },
@@ -88,6 +117,11 @@ CoffeeShop.propTypes = {
   address: PropTypes.string,
   neighborhood: PropTypes.string,
   img: PropTypes.string,
+}
+
+NoMoreCards.propTypes = {
+  backToSearch: PropTypes.func,
+
 }
 
 export default CoffeeShop;

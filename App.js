@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './components/Home';
 import CoffeeShopList from './components/CoffeeShopList';
+import Coffeeshop from './components/CoffeeShop';
 import UserSelection from './components/UserSelection';
 import axios from 'axios';
 import { Tile } from 'react-native-elements'
@@ -14,6 +16,7 @@ export default class App extends React.Component {
       card: '',
     }
     this.searchForMatch = this.searchForMatch.bind(this);
+    this.backToSearch = this.backToSearch.bind(this);
     this.newSearch = this.newSearch.bind(this);
     this.handleYup = this.handleYup.bind(this);
     this.handleNope = this.handleNope.bind(this);
@@ -26,8 +29,12 @@ export default class App extends React.Component {
     this.setState({ defaultPage: UserSelection })
   }
 
+  backToSearch(){
+    this.setState({ defaultPage: UserSelection })
+  }
+
   searchForMatch(neighborhood, parking, wifi, food, alcohol) {
-    fetch(`http://localhost:3000/match?neighborhood=${neighborhood}&parking=${parking}&wifi=${wifi}&food=${food}&alcohol=${alcohol}`)
+    fetch(`http://52.25.68.111//match?neighborhood=${neighborhood}&parking=${parking}&wifi=${wifi}&food=${food}&alcohol=${alcohol}`)
       .then(function(response) {
 
         return response.json()
@@ -56,7 +63,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
       
       {this.state.defaultPage == ''  && ( 
-          <UserSelection searchForMatch={this.searchForMatch} />
+          <Home newSearch={this.newSearch}/>
       )} 
 
       {this.state.defaultPage == UserSelection  && ( 
@@ -69,13 +76,11 @@ export default class App extends React.Component {
           card={this.state.card}
           handleYup={this.handleYup}
           handleNope={this.handleNope}
-          newSearch={this.newSearch}
+          backToSearch={this.backToSearch}
         />
       )}
-        {/* <Text style={styles.text}>Select your choices </Text> */}
-      {/* <UserSelection></UserSelection> */}
-      {/* <CoffeeShop></CoffeeShop> */}
-      </View>
+
+    </View>
     )}
 }
 const styles = StyleSheet.create({
