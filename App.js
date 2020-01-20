@@ -1,11 +1,13 @@
 import React from 'react';
+import {YellowBox} from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './components/Home';
 import CoffeeShopList from './components/CoffeeShopList';
 import UserSelection from './components/UserSelection';
-import axios from 'axios';
-import { Tile } from 'react-native-elements'
 import MatchPage from './components/MatchPage';
+import * as Font from 'expo-font';
+
+YellowBox.ignoreWarnings(['ReactNative.createElement']);
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ export default class App extends React.Component {
       defaultPage: '',
       coffeeshops: [],
       card: '',
+      fontLoaded: false,
     }
     this.searchForMatch = this.searchForMatch.bind(this);
     this.backToSearch = this.backToSearch.bind(this);
@@ -21,6 +24,13 @@ export default class App extends React.Component {
     this.handleYup = this.handleYup.bind(this);
     this.handleNope = this.handleNope.bind(this);
   }
+  // componentDidMount() {
+  //   Font.loadAsync({
+  //     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+  //   });
+  //   this.setState({ fontLoaded: true });
+  // }
+
   onSubmit(){
     this.setState({ defaultPage: UserSelection })
   }
@@ -63,15 +73,17 @@ export default class App extends React.Component {
     console.log('nope');
   }
   render() {
+    console.disableYellowBox = true;
+
     return (
       <View style={styles.container}>
       
       {this.state.defaultPage == ''  && ( 
-          <Home newSearch={this.newSearch}/>
+        <Home newSearch={this.newSearch}/>
       )} 
 
       {this.state.defaultPage == UserSelection  && ( 
-          <UserSelection searchForMatch={this.searchForMatch} />
+        <UserSelection searchForMatch={this.searchForMatch} />
       )} 
 
       {this.state.defaultPage == CoffeeShopList && (

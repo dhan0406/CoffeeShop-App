@@ -14,7 +14,6 @@ class CoffeeShopList extends React.Component {
     }
   }
   
-  // 
   UNSAFE_componentWillReceiveProps() {
     this.setState({
       coffeeshops: this.props.coffeeshops,
@@ -30,9 +29,7 @@ class CoffeeShopList extends React.Component {
       handleYup={this.props.handleYup}
       handleNope={this.props.handleNope}
     /> 
-      
-    )
-  }
+    )}
 }
 
 class CoffeeShop extends React.Component {
@@ -41,7 +38,6 @@ class CoffeeShop extends React.Component {
     this.state = {
       card: props.card,
       cards: props.list
-    
     }
   }
 
@@ -89,8 +85,7 @@ class NoMoreCards extends React.Component {
             onPress={this.onButtonSearch.bind(this)} />
         </Tile> 
       </View> 
-    )
-  }
+    )}
 }
 
 export default CoffeeShopList;

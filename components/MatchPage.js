@@ -3,8 +3,6 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Communications from 'react-native-communications';
 
-
-
 class MatchPage extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +22,6 @@ class MatchPage extends React.Component {
           onPress={() => Communications.text('0123456789', 'Test Text Here')}>
           
         </Button>
-
 
       </View>
     )

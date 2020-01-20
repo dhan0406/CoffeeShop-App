@@ -6,68 +6,20 @@ import { Dropdown } from 'react-native-material-dropdown';
 
 class UserSelection extends React.Component {
   state = { neighborhood: '',
-  parking: '',
-  wifi: '',
-  food: '',
-  alcohol: ''};
-  // constructor(props) {
-  //   super(props);
-    
-  //   this.state = {
-  //   neighborhood: '',
-  //   parking: '',
-  //   wifi: '',
-  //   food: '',
-  //   alcohol: '',
-  //   queryResults: []
-  // };}
-
+    parking: '',
+    wifi: '',
+    food: '',
+    alcohol: ''};
 
   onSubmit() {
     const { neighborhood, parking, wifi, food, alcohol } = this.state;
     this.props.searchForMatch(neighborhood, parking, wifi, food, alcohol )
   }
-// make an API call to my Rails backend
-  // searchForMatch = (event) => {
-  //   event.preventDefault();
-
-  //   console.log(`${this.state.parking}`);
-  //   console.log(`${this.state.wifi}`);
-  //   axios.get(`http://localhost:3000/match?neighborhood=${this.state.neighborhood}&parking=${this.state.parking}&wifi=${this.state.wifi}&food=${this.state.food}&alcohol=${this.state.alcohol}`)
-  //     .then((response) => {
-  //       const queryResults = response.data.map(coffeeShop => {
-  //         return coffeeShop;
-  //       });
-  //         this.setState({queryResults});
-  //       })
-  //       .catch((error) => {
-  //         this.setState({ error: "no matches found"})
-  //       })
-        
-  // };
-
-  // build CoffeeShop from my queryResult
-  // makeCoffeeShops = () => {
-  //   console.log(`${this.state.neighborhood}`);
-
-  //   console.log(`${this.state.parking}`);
-  //   console.log(`${this.state.wifi}`);
-  //     return this.state.queryResults.map((coffeeshop) => {
-  //     return (<CoffeeShop
-  //         key={coffeeshop.id}
-  //         id={coffeeshop.id}
-  //         name={coffeeshop.name}
-  //         address={coffeeshop.address}
-  //         neighborhood={coffeeshop.neighborhood}
-  //         img={coffeeshop.img}
-  //       />)
-  //   })
-  // }
 
   render() {
     let neighborhood = [{ value: 'Capitol Hill'}, { value: 'Downtown'}, {value: 'International District'}, { value: 'SLU'}, { value: 'Ravenna'}, { value: 'U-District'}, { value: 'Ballard'}, { value: 'Fremont'}, { value: 'Wallingford'}];
   
-    let parking = [{ value: 'lot', label: 'Lot/Garage'}, { value: 'street'}]
+    let parking = [{ value: 'lot', label: 'Lot/Garage'}, { value: 'street', label: 'Street'}]
 
     let wifi = [{ value: 'true', label: 'Yes'}, { value: 'false', label: 'No'}]
 
@@ -95,7 +47,7 @@ class UserSelection extends React.Component {
 
       <Dropdown
         containerStyle={styles.dropdown}
-        label='Free Wifi'
+        label='Free WiFi'
         data={wifi}
         value={this.state.wifi}
         onChangeText={wifi => this.setState({wifi})} />
@@ -114,16 +66,11 @@ class UserSelection extends React.Component {
         value={this.state.alcohol}
         onChangeText={alcohol => this.setState({alcohol})} />
 
-
       <Button 
         title="Submit"
         onPress={this.onSubmit.bind(this)} />
-
     </View>
-
-
-  )
-  }
+  )}
 }
 
 const styles = StyleSheet.create({
