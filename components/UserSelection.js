@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import axios from 'axios';
 import { StyleSheet, Text, View} from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 import { Button } from 'react-native-elements';

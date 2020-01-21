@@ -49,9 +49,8 @@ export default class App extends React.Component {
   }
 
   searchForMatch(neighborhood, parking, wifi, food) {
-    fetch(`http://localhost:3000/match?neighborhood=${neighborhood}&parking=${parking}&wifi=${wifi}&food=${food}`)
+    fetch(`http://52.25.68.111/match?neighborhood=${neighborhood}&parking=${parking}&wifi=${wifi}&food=${food}`)
       .then(function(response) {
-
         return response.json()
       }).then((json) => {
         console.log(json);
@@ -60,7 +59,6 @@ export default class App extends React.Component {
           defaultPage: CoffeeShopList,
       })
     })
-        
         .catch((error) => {
           this.setState({ error: "no matches found"})
         })  
@@ -74,7 +72,7 @@ export default class App extends React.Component {
     })
   }
 
-  handleNope(card){
+  handleNope(){
     console.log('nope');
   }
   render() {

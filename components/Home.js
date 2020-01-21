@@ -51,7 +51,6 @@ export default class Home extends React.Component {
         onPress={this.onStart.bind(this)} />
 
       </ImageBackground>
-
     )
   }
 }

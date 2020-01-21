@@ -14,7 +14,6 @@ class MatchPage extends React.Component {
   }
     onPress(){
       this.props.backToHome()
-  
   }
   render() {
     return(
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
     flex:1,justifyContent:"center",backgroundColor:"#fff", alignItems:"center",
     fontFamily:'AvenirNext-Medium'
   },
-
   text: {
     fontSize: 20,
   }

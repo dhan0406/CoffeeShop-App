@@ -28,7 +28,8 @@ class CoffeeShopList extends React.Component {
       renderCard={(cardData) => <CoffeeShop {...cardData} />}
       renderNoMoreCards={() => <NoMoreCards backToSearch={this.props.backToSearch} />}
       handleYup={this.props.handleYup}
-      handleNope={this.props.handleNope}
+      showNope={false}
+      handleNope={this.handleNope}
     /> 
     )}
 }
