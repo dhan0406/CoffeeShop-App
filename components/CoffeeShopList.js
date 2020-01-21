@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import SwipeCards from 'react-native-swipe-cards';
 import { Tile } from 'react-native-elements'
 import NoMoreMatchPage from './NoMoreMatchPage';

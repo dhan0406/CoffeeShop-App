@@ -29,7 +29,7 @@ class MatchPage extends React.Component {
           titleStyle={{fontFamily:'AvenirNext-Medium'}}
           title="Text to Share Location"
           style = {styles.button}
-          onPress={() => Communications.text('0123456789', `Hey! I'm going to ${this.state.card.name}`)}>
+          onPress={() => Communications.text('', `Hey! I'm going to ${this.state.card.name}`)}>
           
         </Button>
         <Text>{' '}</Text>
