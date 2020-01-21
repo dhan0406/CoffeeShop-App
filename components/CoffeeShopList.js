@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import SwipeCards from 'react-native-swipe-cards';
 import { Tile } from 'react-native-elements'
+import NoMoreMatchPage from './NoMoreMatchPage';
 
 class CoffeeShopList extends React.Component {
   constructor(props) {
@@ -44,17 +45,30 @@ class CoffeeShop extends React.Component {
   render() {
     return(
       <View   
-      style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+      style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between',
+      backgroundColor: '#f8f3e6',
+      fontFamily:'SpicyRice-Regular'}}>
+  
+      <Tile
+      // imageSrc={require('../assets/icon.png')}
+      titleStyle={{fontFamily:'SpicyRice-Regular',
+
       
-        <Tile
-          // imageSrc={require('../assets/icon.png')}
-          imageSrc={{ uri: this.props.img }}
-          title={this.props.name}
-          contentContainerStyle={{ height: 60 }}
-        >
-          <Text>{this.props.address}</Text>
-          <Text>{this.props.neighborhood}</Text>
-        </Tile>  
+      }}
+      
+      imageSrc={{ uri: this.props.img }}
+      title={this.props.name}
+      contentContainerStyle={{ height: 60 }}
+    >
+          <Text style={{
+        fontSize: 14,
+        fontFamily:'AvenirNext-Medium'
+        }}>{this.props.address}</Text>
+          <Text style={{
+        fontSize: 14,
+        fontFamily:'AvenirNext-Medium'
+        }}>{this.props.neighborhood}</Text>
+      </Tile>
       </View> 
     )
   }
@@ -67,24 +81,30 @@ class NoMoreCards extends React.Component {
     onButtonSearch() {
     this.props.backToSearch()
     }
-  
 
   render() {
     console.log('no more matches');
-    
     return (
-      <View>
-        {/* apply style to hide image */}
-        <Tile>
+      <NoMoreMatchPage backToSearch={this.props.backToSearch}></NoMoreMatchPage>
+      // <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center',
+      // alignItems:"center",
+      // backgroundColor: '#f8f3e6'}}>
+      //   {/* apply style to hide image */}
+      //   <Tile titleStyle={{height: 100}}>
 
-        <Text>No More Matches!</Text>
+      //   <Text style={{fontFamily:'SpicyRice-Regular',
+      // height: 150,
+      // justifyContent: 'center',
+      // alignSelf: 'stretch',
+      // alignItems:"center",
+      // flex: 3, flexDirection: 'column'}}>No More Matches!</Text>
 
-          <Button 
-            // style={{ flex: 1}}
-            title="New Search"
-            onPress={this.onButtonSearch.bind(this)} />
-        </Tile> 
-      </View> 
+      //     <Button 
+      //       // style={{ flex: 1}}
+      //       title="New Search"
+      //       onPress={this.onButtonSearch.bind(this)} />
+      //   </Tile> 
+      // </View> 
     )}
 }
 

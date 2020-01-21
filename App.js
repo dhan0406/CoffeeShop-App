@@ -23,6 +23,7 @@ export default class App extends React.Component {
     this.newSearch = this.newSearch.bind(this);
     this.handleYup = this.handleYup.bind(this);
     this.handleNope = this.handleNope.bind(this);
+    this.backToHome = this.backToHome.bind(this);
   }
   // componentDidMount() {
   //   Font.loadAsync({
@@ -43,8 +44,12 @@ export default class App extends React.Component {
     this.setState({ defaultPage: UserSelection })
   }
 
-  searchForMatch(neighborhood, parking, wifi, food, alcohol) {
-    fetch(`http://52.25.68.111//match?neighborhood=${neighborhood}&parking=${parking}&wifi=${wifi}&food=${food}&alcohol=${alcohol}`)
+  backToHome(){
+    this.setState({ defaultPage: Home })
+  }
+
+  searchForMatch(neighborhood, parking, wifi, food) {
+    fetch(`http://localhost:3000/match?neighborhood=${neighborhood}&parking=${parking}&wifi=${wifi}&food=${food}`)
       .then(function(response) {
 
         return response.json()
@@ -99,7 +104,12 @@ export default class App extends React.Component {
       {this.state.defaultPage == MatchPage && (
         <MatchPage
           card={this.state.card}
+          backToHome={this.backToHome}
         />
+      )}
+
+      {this.state.defaultPage == Home && (
+        <Home newSearch={this.newSearch}></Home>
       )}
     </View>
     )}

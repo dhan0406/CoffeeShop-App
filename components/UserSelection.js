@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import axios from 'axios';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
+import { Button } from 'react-native-elements';
+
 
 class UserSelection extends React.Component {
   state = { neighborhood: '',
@@ -67,7 +69,10 @@ class UserSelection extends React.Component {
         onChangeText={alcohol => this.setState({alcohol})} />
 
       <Button 
-        title="Submit"
+        buttonStyle={{backgroundColor:'#2c2627', fontFamily:'SpicyRice-Regular'}}
+        titleStyle={{fontFamily:'AvenirNext-Medium'}}
+        type="solid"
+        title="Search"
         onPress={this.onSubmit.bind(this)} />
     </View>
   )}
@@ -79,9 +84,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
+    fontFamily: 'SpicyRice-Regular'
   },
   dropdown: {
     width: '80%',
+    fontFamily: 'SpicyRice-Regular'
   }
 })
 
