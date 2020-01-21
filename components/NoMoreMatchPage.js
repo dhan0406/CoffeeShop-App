@@ -15,7 +15,7 @@ class NoMoreMatchPage extends React.Component {
   render() {
     return(
       <View style={styles.container}>
-        <Text style={{fontFamily:'AvenirNext-Medium', fontSize: 20}}>Sorry, there's no more matches!
+        <Text style={{fontFamily:'AvenirNext-Medium', textAlign: 'center', fontSize: 20}}>Sorry, there's no more matches!
 
         </Text>
         <Text> {' '}</Text>
@@ -33,13 +33,7 @@ class NoMoreMatchPage extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,justifyContent:"center",backgroundColor:"#fff", alignItems:"center"
-  },
-  button: {
-    justifyContent: 'center',
-    width : 300,
-    backgroundColor:"#307cae",
-    marginTop : 20,
+    flex:1,justifyContent:"center",backgroundColor:'#fff', alignItems:"center"
   },
   text: {
     fontSize: 20,

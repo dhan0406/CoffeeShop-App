@@ -51,8 +51,9 @@ class MatchPage extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,justifyContent:"center",backgroundColor:"#fff", alignItems:"center",
-    fontFamily:'AvenirNext-Medium'
+    flex:1,justifyContent:"center", alignItems:"center",
+    fontFamily:'AvenirNext-Medium',
+    backgroundColor: '#f8f3e6'
   },
   text: {
     fontSize: 20,
