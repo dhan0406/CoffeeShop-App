@@ -10,3 +10,11 @@ Users can swipe left or right on their coffee shop matches, similar to Tinder. U
 * Clone this repository on your local machine
 * Run $ npm start
 * Open the Expo app on your phone to view the project
+https://youtu.be/anT0c5jaB38
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=anT0c5jaB38
+" target="_blank"><img src="http://img.youtube.com/vi/anT0c5jaB38/0.jpg" 
+alt="coffee mate demo" width="240" height="180" border="10" /></a>
+
+
+[![coffee mate demo](http://img.youtube.com/vi/anT0c5jaB38/0.jpg)](http://www.youtube.com/watch?v=anT0c5jaB38)
