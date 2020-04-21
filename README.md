@@ -8,7 +8,7 @@ Users can swipe left or right on their coffee shop matches, similar to Tinder. U
 ### Instructions:
 * Download the Expo application on your phone
 * Clone this repository on your local machine
-* Run $ npm start
+* Run `$ npm start` and scan the QR code provided on your terminal
 * Open the Expo app on your phone to view the project
 
 ### Coffee Mate Demo:
